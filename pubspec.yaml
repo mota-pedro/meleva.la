@@ -87,13 +87,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
-
-flutter_native_splash:
-  color: "#5271ff"
-  image: assets/images/melevala_blue.png
-
-  android: true
-  ios: true
-  web: false
-
-  fullscreen: true
