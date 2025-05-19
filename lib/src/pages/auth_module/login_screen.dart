@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding: const EdgeInsets.only(bottom: 24.0),
                           child: CustomButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomeScreen()), (route) => false);
                             },
                             title: 'Entrar',
                           ),
