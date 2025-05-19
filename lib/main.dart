@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
             seedColor: Color.fromARGB(255, 82, 113, 255),
             primary: Color.fromARGB(255, 82, 113, 255),
             secondary: Colors.white,
-            tertiary: Color.fromARGB(255, 239, 239, 239),
+            tertiary: Color.fromARGB(255, 246, 246, 246),
         ),
       ),
       home: const LoginScreen(),
