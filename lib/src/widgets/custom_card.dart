@@ -89,7 +89,60 @@ class CustomCard extends StatelessWidget {
               ),
               SizedBox(height: 10.0),
               Row(
-                children: [],
+                children: [
+                  Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Theme.of(context).colorScheme.secondary)
+                    ),
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Theme.of(context).colorScheme.primary)
+                      ),
+                      child: ClipOval(
+                        child: Image.asset(
+                            "assets/mocks/person_mock1.jpg",
+                            fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10.0),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Nome do motorista',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.star,
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
+                          SizedBox(width: 6.0),
+                          Text(
+                            '5,0',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
+                ],
               )
             ],
           ),
