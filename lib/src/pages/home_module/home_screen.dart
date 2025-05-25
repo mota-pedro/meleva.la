@@ -38,11 +38,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   SizedBox(height: 30.0),
                                   SizedBox(
-                                    width: 250,
+                                    width: MediaQuery.sizeOf(context).width,
                                     child: Text(
                                       'Para onde você quer ir?',
                                       style: TextStyle(
-                                          fontSize: 32,
+                                          fontSize: 30,
                                           color: Theme.of(context).colorScheme.primary,
                                           fontWeight: FontWeight.bold
                                       ),
@@ -65,12 +65,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: Text(
                                       'Viagens próximas a você',
                                       style: TextStyle(
-                                          fontSize: 28,
+                                          fontSize: 26,
                                           color: Theme.of(context).colorScheme.primary,
                                           fontWeight: FontWeight.bold
                                       ),
                                     ),
                                   ),
+                                  SizedBox(height: 20.0),
                                   CustomCard()
                                 ],
                               ),

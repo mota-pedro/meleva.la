@@ -14,7 +14,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: const Image(
           image: AssetImage('assets/images/melevala_white.png'),
-          width: 180,
+          width: 160,
       ),
     );
   }
