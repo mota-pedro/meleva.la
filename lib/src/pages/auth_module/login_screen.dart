@@ -49,6 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 controller: passwordController,
                                 label: 'Senha',
                                 icon: Icons.lock_rounded,
+                                isPassword: true,
                               ),
                               const SizedBox(height: 20),
                               Row(
