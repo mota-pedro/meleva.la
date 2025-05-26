@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({super.key});
+  final String date;
+  final String from;
+  final String to;
+  final String driver;
+  final String photo;
+  final String stars;
+
+  const CustomCard({super.key, required this.date, required this.from, required this.to, required this.driver, required this.photo, required this.stars});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +25,7 @@ class CustomCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Ter. 27 Mai.',
+                date,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -53,7 +60,7 @@ class CustomCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'De',
+                        from,
                         style: TextStyle(
                           fontSize: 16,
                           color: Theme.of(context).colorScheme.secondary,
@@ -68,7 +75,7 @@ class CustomCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Para',
+                        to,
                         style: TextStyle(
                           fontSize: 16,
                           color: Theme.of(context).colorScheme.secondary,
@@ -104,9 +111,10 @@ class CustomCard extends StatelessWidget {
                           shape: BoxShape.circle,
                           border: Border.all(color: Theme.of(context).colorScheme.primary)
                       ),
-                      child: ClipOval(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(40),
                         child: Image.asset(
-                            "assets/mocks/person_mock1.jpg",
+                            photo == "1" ? "assets/mocks/person_mock1.jpg" : "assets/mocks/person_mock2.jpg",
                             fit: BoxFit.cover,
                         ),
                       ),
@@ -117,7 +125,7 @@ class CustomCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Nome do motorista',
+                        driver,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -132,7 +140,7 @@ class CustomCard extends StatelessWidget {
                           ),
                           SizedBox(width: 6.0),
                           Text(
-                            '5,0',
+                            stars,
                             style: TextStyle(
                               fontSize: 16,
                               color: Theme.of(context).colorScheme.secondary,
