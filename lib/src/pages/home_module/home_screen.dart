@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meleva_la/src/widgets/custom_appbar.dart';
 import 'package:meleva_la/src/widgets/custom_card.dart';
+import 'package:meleva_la/src/widgets/custom_navbar.dart';
 import 'package:meleva_la/src/widgets/custom_text_field.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -52,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.primary,
+                        color: theme.colorScheme.tertiary,
                       ),
                     ),
                   ),
@@ -64,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
-                  color: theme.colorScheme.primary,
+                  color: theme.colorScheme.tertiary,
                 ),
               ),
               const SizedBox(height: 16),
@@ -79,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w600,
-                  color: theme.colorScheme.primary,
+                  color: theme.colorScheme.tertiary,
                 ),
               ),
               const SizedBox(height: 16),
@@ -106,6 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      bottomNavigationBar: CustomNavbar(),
     );
   }
 }

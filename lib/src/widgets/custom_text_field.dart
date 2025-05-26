@@ -58,6 +58,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
       controller: widget.controller,
       focusNode: _focusNode,
       obscureText: widget.isPassword != null && widget.isPassword! ? viewPassword : false,
+      style: TextStyle(
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black
+      ),
       decoration: InputDecoration(
         prefixIcon: Icon(widget.icon, color: iconColor),
         suffixIcon: widget.isPassword != null && widget.isPassword!

@@ -39,19 +39,19 @@ class CustomCard extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.circle_outlined,
-                        color: Theme.of(context).colorScheme.secondary,
+                        color: Colors.white,
                       ),
                       Container(
                         width: 1.5,
                         height: 30,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Theme.of(context).colorScheme.secondary
+                          color: Colors.white
                         ),
                       ),
                       Icon(
                         Icons.circle_outlined,
-                        color: Theme.of(context).colorScheme.secondary,
+                        color: Colors.white,
                       ),
                     ],
                   ),
@@ -63,7 +63,7 @@ class CustomCard extends StatelessWidget {
                         from,
                         style: TextStyle(
                           fontSize: 16,
-                          color: Theme.of(context).colorScheme.secondary,
+                          color: Colors.white,
                         ),
                       ),
                       Container(
@@ -78,7 +78,7 @@ class CustomCard extends StatelessWidget {
                         to,
                         style: TextStyle(
                           fontSize: 16,
-                          color: Theme.of(context).colorScheme.secondary,
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -102,7 +102,7 @@ class CustomCard extends StatelessWidget {
                     height: 60,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      border: Border.all(color: Theme.of(context).colorScheme.secondary)
+                      border: Border.all(color: Colors.white)
                     ),
                     child: Container(
                       width: 50,
@@ -129,21 +129,21 @@ class CustomCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.secondary,
+                          color: Colors.white,
                         ),
                       ),
                       Row(
                         children: [
                           Icon(
                             Icons.star,
-                            color: Theme.of(context).colorScheme.secondary,
+                            color: Colors.white,
                           ),
                           SizedBox(width: 6.0),
                           Text(
                             stars,
                             style: TextStyle(
                               fontSize: 16,
-                              color: Theme.of(context).colorScheme.secondary,
+                              color: Colors.white,
                             ),
                           ),
                         ],

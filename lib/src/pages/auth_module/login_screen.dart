@@ -18,6 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.secondary,
       body: SafeArea(
@@ -56,16 +58,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                 children: [
                                   Checkbox(
                                     value: rememberMe,
+                                    overlayColor: WidgetStateProperty.all(theme.colorScheme.primary),
+                                    side: BorderSide(color: theme.colorScheme.tertiary, width: 1.75),
                                     onChanged: (value) {
                                       setState(() {
                                         rememberMe = value ?? false;
                                       });
                                     },
                                   ),
-                                  const Text(
+                                  Text(
                                     'Lembre-se de mim',
                                     style: TextStyle(
-                                      fontSize: 16
+                                      fontSize: 16,
+                                      color: theme.colorScheme.tertiary
                                     ),
                                   ),
                                 ],
