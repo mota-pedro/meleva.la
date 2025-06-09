@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:meleva_la/src/pages/travels_module/travel_page.dart';
+import 'package:meleva_la/src/services/user_service.dart';
 import 'package:meleva_la/src/widgets/custom_appbar.dart';
 import 'package:meleva_la/src/widgets/custom_card.dart';
 import 'package:meleva_la/src/widgets/custom_navbar.dart';
@@ -7,6 +10,7 @@ import 'package:meleva_la/src/widgets/custom_text_field.dart';
 
 import '../../models/user.dart';
 import '../../services/shared_preferences.dart';
+import '../../services/token_manager.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,6 +20,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final UserService userService = UserService();
   late User user;
 
   final TextEditingController toDestinyController = TextEditingController();
@@ -37,8 +42,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> loadUser() async {
-    dynamic result = await SharedPreference.getUser();
-    print("USER FROM PREFS: $result");
+    dynamic users = await userService.getUsers();
+    dynamic loggedUser = await SharedPreference.getUser();
+    String userId = '';
+    for (dynamic user in users) {
+      if (user['email'] == loggedUser['email']) {
+        userId = user['id'].toString();
+      }
+    }
+    dynamic result = await userService.getUserById(id: userId);
     setState(() {
       user = User.fromJson(result);
       userLoaded = true;

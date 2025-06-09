@@ -4,6 +4,7 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final IconData? leadingIcon;
   final String title;
+  final bool? isLoading;
   final Color? color;
   final double? width;
   final double? height;
@@ -16,6 +17,7 @@ class CustomButton extends StatelessWidget {
     this.width,
     this.height,
     this.leadingIcon,
+    this.isLoading,
   });
 
   @override
@@ -31,7 +33,9 @@ class CustomButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       ),
       child:
-          leadingIcon != null
+          isLoading != null && isLoading == true
+              ? Center(child: CircularProgressIndicator(color: Colors.white,))
+              : leadingIcon != null
               ? Row(
                 children: [
                   Padding(

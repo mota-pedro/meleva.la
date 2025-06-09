@@ -20,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  bool isLoading = false;
   String? errorMessage;
   bool rememberMe = false;
 
@@ -109,6 +110,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         padding: const EdgeInsets.only(bottom: 24.0),
                         child: CustomButton(
                           onPressed: () async {
+                            setState(() {
+                              isLoading = true;
+                            });
                             try {
                               await authService.doLogin(
                                 email: emailController.text,
@@ -123,16 +127,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                   (route) => false,
                                 );
+                                setState(() {
+                                  isLoading = false;
+                                });
                               }
                             } catch (error) {
                               if (mounted) {
                                 setState(() {
+                                  isLoading = false;
                                   errorMessage = 'Credenciais inválidas';
                                 });
                               }
                             }
                           },
                           title: 'Entrar',
+                          isLoading: isLoading,
                         ),
                       ),
                     ],
