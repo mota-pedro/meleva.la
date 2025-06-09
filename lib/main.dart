@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
             primary: Color.fromARGB(255, 82, 113, 255),
             secondary: Colors.white,
             tertiary: Color.fromARGB(255, 67, 100, 251),
-            tertiaryFixed: Color.fromARGB(255, 26, 29, 32)
+            tertiaryFixed: Color.fromARGB(255, 26, 29, 32),
+            onError: Colors.red,
         ),
         textTheme: TextTheme(
 
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
           primary: Color.fromARGB(255, 82, 113, 255),
           secondary: Color.fromARGB(255, 26, 29, 32),
           tertiary: Colors.white,
-          tertiaryFixed: Colors.white
+          tertiaryFixed: Colors.white,
+          onError: Colors.redAccent
         ),
       ),
       home: const LoginScreen(),

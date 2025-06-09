@@ -5,6 +5,9 @@ import 'package:meleva_la/src/widgets/custom_card.dart';
 import 'package:meleva_la/src/widgets/custom_navbar.dart';
 import 'package:meleva_la/src/widgets/custom_text_field.dart';
 
+import '../../models/user.dart';
+import '../../services/shared_preferences.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -13,6 +16,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late User user;
+
   final TextEditingController toDestinyController = TextEditingController();
 
   final List<Map<String, String>> ridesList = [
@@ -23,10 +28,39 @@ class _HomeScreenState extends State<HomeScreen> {
     {"date": "Qui. 29 Mai.", "from": "Arcoverde - PE", "to": "Garanhuns - PE", "driver": "Erick Martins", "photo": "1", "stars": "4,2", "value": "13,00"},
   ];
 
+  bool userLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    loadUser();
+  }
+
+  Future<void> loadUser() async {
+    dynamic result = await SharedPreference.getUser();
+    print("USER FROM PREFS: $result");
+    setState(() {
+      user = User.fromJson(result);
+      userLoaded = true;
+    });
+  }
+
+  bool isInitialized() {
+    return userLoaded;
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
+    if (!isInitialized()) {
+      return Scaffold(
+        backgroundColor: theme.colorScheme.secondary,
+        body: const Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
     return Scaffold(
       backgroundColor: theme.colorScheme.secondary,
       appBar: CustomAppbar(
@@ -52,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(width: 16),
                   Expanded(
                     child: Text(
-                      'Bem-vindo(a) de volta, Fulano!',
+                      'Bem-vindo(a) de volta, ${user.name}!',
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
