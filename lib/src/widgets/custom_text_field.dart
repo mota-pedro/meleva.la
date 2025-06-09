@@ -3,14 +3,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
-  final IconData icon;
+  final IconData? icon;
   final String label;
   final bool? isPassword;
 
   const CustomTextField({
     super.key,
     required this.controller,
-    required this.icon,
+    this.icon,
     required this.label,
     this.isPassword,
   });
@@ -59,11 +59,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
       focusNode: _focusNode,
       obscureText: widget.isPassword != null && widget.isPassword! ? viewPassword : false,
       style: TextStyle(
-        color: Theme.of(context).brightness == Brightness.dark
-            ? Colors.white
-            : Colors.black
+          color: Theme.of(context).colorScheme.tertiaryFixed
       ),
       decoration: InputDecoration(
+
         prefixIcon: Icon(widget.icon, color: iconColor),
         suffixIcon: widget.isPassword != null && widget.isPassword!
           ? IconButton(
@@ -100,38 +99,33 @@ class _CustomTextFieldState extends State<CustomTextField> {
   }
 }
 
-class CustomHomeTextField extends StatelessWidget {
+class CustomChatTextField extends StatelessWidget {
   final TextEditingController controller;
-  final IconData icon;
-  final String label;
 
-  const CustomHomeTextField({
+  const CustomChatTextField({
     super.key,
     required this.controller,
-    required this.icon,
-    required this.label,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      style: TextStyle(
+          color: Theme.of(context).colorScheme.tertiaryFixed
+      ),
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(vertical: 14.0),
-        prefixIcon: Icon(icon, color: Colors.grey),
-        labelText: label,
-        labelStyle: TextStyle(
-          color: Colors.black54,
-          fontWeight: FontWeight.bold,
-        ),
-        focusedBorder: UnderlineInputBorder(
+        contentPadding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 14.0),
+        focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.primary,
-            width: 1.5,
+            width: 2.0,
           ),
+          borderRadius: BorderRadius.circular(40),
         ),
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey, width: 1.5),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey, width: 2.0),
+          borderRadius: BorderRadius.circular(40),
         ),
       ),
     );

@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
             primary: Color.fromARGB(255, 82, 113, 255),
             secondary: Colors.white,
             tertiary: Color.fromARGB(255, 67, 100, 251),
+            tertiaryFixed: Color.fromARGB(255, 26, 29, 32)
         ),
         textTheme: TextTheme(
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
           primary: Color.fromARGB(255, 82, 113, 255),
           secondary: Color.fromARGB(255, 26, 29, 32),
           tertiary: Colors.white,
+          tertiaryFixed: Colors.white
         ),
       ),
       home: const LoginScreen(),

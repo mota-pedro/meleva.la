@@ -31,7 +31,7 @@ class CustomNavbar extends StatelessWidget {
               child: Column(
                 children: [
                   Icon(
-                    Icons.airplane_ticket_rounded,
+                    Icons.directions_bus_rounded,
                     size: 34,
                     color: Colors.white,
                   ),

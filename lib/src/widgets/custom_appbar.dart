@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppbar({super.key});
+  final bool? addBackButton;
+
+  const CustomAppbar({super.key, this.addBackButton});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -10,7 +12,9 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Theme.of(context).colorScheme.primary,
-      foregroundColor: Theme.of(context).colorScheme.secondary,
+      foregroundColor: Colors.white,
+      scrolledUnderElevation: 0.0,
+      automaticallyImplyLeading: addBackButton ?? true,
       centerTitle: true,
       title: const Image(
           image: AssetImage('assets/images/melevala_white.png'),
